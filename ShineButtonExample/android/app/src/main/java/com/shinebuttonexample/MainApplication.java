@@ -3,7 +3,7 @@ package com.shinebuttonexample;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.reactlibrary.RNShineButtonPackage;
+import ui.shine.RNShineButtonPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
