@@ -9,7 +9,12 @@ const ShineButton = requireNativeComponent("RNShineButton", null);
 class RNShineButton extends Component {
 
     render () {
-        return <ShineButton style={[style.button]} />;
+        return <ShineButton
+          style={[style.button]}
+          shape={this.props.shape}
+          color={this.props.color}
+          fillColor={this.props.fillColor}
+        />;
     }
 }
 

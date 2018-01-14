@@ -23,29 +23,21 @@ const instructions = Platform.select({
 
 export default class App extends Component<{}> {
   render() {
-    return (
-      <View style={styles.container}>
-        <RNShineButton />
-      </View>
-    );
+    return <View style={styles.container}>
+        <RNShineButton shape={"heart"} color={"#808080"} fillColor={"#ff0000"} />
+        <RNShineButton shape={"like"} color={"#808080"} fillColor={"#3d7057"} />
+        <RNShineButton shape={"smile"} color={"#808080"} fillColor={"#703d3d"} />
+        <RNShineButton shape={"star"} color={"#808080"} fillColor={"#3d3d70"} />
+      </View>;
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF"
+  }
 });

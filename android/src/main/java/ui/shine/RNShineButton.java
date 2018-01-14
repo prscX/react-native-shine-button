@@ -1,6 +1,8 @@
 
 package ui.shine;
 
+import android.app.Activity;
+import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -15,11 +17,18 @@ import com.facebook.react.bridge.Callback;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 
+import com.facebook.react.uimanager.annotations.ReactProp;
 import com.sackcentury.shinebuttonlib.ShineButton;
 
 public class RNShineButton extends ViewGroupManager<ViewGroup> {
 
   public static final String REACT_CLASS = "RNShineButton";
+
+  private final String SHAPE_HEART = "heart";
+  private final String SHAPE_LIKE = "like";
+  private final String SHAPE_SMILE = "smile";
+  private final String SHAPE_STAR = "star";
+
 
   @Override
   public String getName() {
@@ -28,28 +37,50 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
 
 
   @Override
-  protected LinearLayout createViewInstance(ThemedReactContext reactContext) {
+  protected FrameLayout createViewInstance(ThemedReactContext reactContext) {
 
-    ShineButton shineButtonJava = new ShineButton(reactContext.getCurrentActivity());
-    shineButtonJava.setBtnColor(Color.GRAY);
-    shineButtonJava.setBtnFillColor(Color.RED);
-    shineButtonJava.setShapeResource(R.raw.heart);
-    shineButtonJava.setAllowRandomColor(true);
-    shineButtonJava.setClickable(true);
+    ShineButton shineButton = new ShineButton(reactContext.getCurrentActivity());
+    shineButton.setBtnFillColor(Color.RED);
+    shineButton.setAllowRandomColor(true);
 
-    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(60, 60);
-    shineButtonJava.setLayoutParams(layoutParams);
+    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(100, 100);
+    shineButton.setLayoutParams(layoutParams);
 
-//    LinearLayout linearLayout = new LinearLayout(reactContext);
-//    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(100, 100);
-//    if (linearLayout != null) {
-//      linearLayout.addView(shineButtonJava);
-//    }
-
-    LinearLayout frameLayout = new LinearLayout(reactContext);
-    frameLayout.addView(shineButtonJava, 60, 60);
-    frameLayout.setClickable(true);
+    FrameLayout frameLayout = new FrameLayout(reactContext.getCurrentActivity());
+    frameLayout.addView(shineButton);
 
     return frameLayout;
+  }
+
+  @ReactProp(name = "color")
+  public void setColor(FrameLayout shineButtonFrame, String color) {
+    ShineButton shineButton = (ShineButton) shineButtonFrame.getChildAt(0);
+    shineButton.setBtnColor(Color.parseColor(color));
+  }
+
+  @ReactProp(name = "fillColor")
+  public void setFillColor(FrameLayout shineButtonFrame, String fillColor) {
+    ShineButton shineButton = (ShineButton) shineButtonFrame.getChildAt(0);
+    shineButton.setBtnFillColor(Color.parseColor(fillColor));
+  }
+
+  @ReactProp(name = "shape")
+  public void setShape(FrameLayout shineButtonFrame, String shape) {
+    ShineButton shineButton = (ShineButton) shineButtonFrame.getChildAt(0);
+
+    switch (shape) {
+      case SHAPE_HEART:
+        shineButton.setShapeResource(R.raw.heart);
+        break;
+      case SHAPE_LIKE:
+        shineButton.setShapeResource(R.raw.like);
+        break;
+      case SHAPE_SMILE:
+        shineButton.setShapeResource(R.raw.smile);
+        break;
+      case SHAPE_STAR:
+        shineButton.setShapeResource(R.raw.star);
+        break;
+    }
   }
 }
