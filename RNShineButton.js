@@ -8,8 +8,7 @@ import { requireNativeComponent } from "react-native"
 class RNShineButton extends Component {
 
     _onChange = (event) => {
-      this.props.onChange && this.props.onChange(event);
-      this.props.onValueChange && this.props.onValueChange(event.nativeEvent.value);
+      this.props.onChange && this.props.onChange(event.nativeEvent.value);
 
       this._shineButton.setNativeProps({ on: event.nativeEvent.value});
     }
@@ -43,7 +42,8 @@ RNShineButton.propTypes = {
   on: PropTypes.bool,
   color: PropTypes.string,
   fillColor: PropTypes.string,
-  size: PropTypes.number
+  size: PropTypes.number,
+  onChange: PropTypes.func
 };
 
 RNShineButton.defaultProps = {
