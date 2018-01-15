@@ -52,6 +52,7 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
 
     final ShineButton shineButton = new ShineButton(reactContext.getCurrentActivity());
     final FrameLayout frameLayout = new FrameLayout(reactContext.getCurrentActivity());
+    frameLayout.addView(shineButton);
 
     shineButton.setOnCheckStateChangeListener(new ShineButton.OnCheckedChangeListener() {
       @Override
@@ -64,12 +65,6 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
                         checked));
       }
     });
-
-//    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(100, 100);
-//    shineButton.setLayoutParams(layoutParams);
-
-//    frameLayout.setId(viewId);
-    frameLayout.addView(shineButton);
 
     return frameLayout;
   }
