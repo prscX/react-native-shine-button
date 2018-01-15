@@ -2,23 +2,30 @@
 package ui.shine;
 
 import android.app.Activity;
+import android.content.ContextWrapper;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.UIManagerModule;
 import com.facebook.react.uimanager.ViewGroupManager;
 
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.sackcentury.shinebuttonlib.ShineButton;
+
+import java.util.Random;
 
 public class RNShineButton extends ViewGroupManager<ViewGroup> {
 
@@ -35,21 +42,55 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
     return REACT_CLASS;
   }
 
-
   @Override
-  protected FrameLayout createViewInstance(ThemedReactContext reactContext) {
+  protected FrameLayout createViewInstance(final ThemedReactContext reactContext) {
+    int randomId;
 
-    ShineButton shineButton = new ShineButton(reactContext.getCurrentActivity());
-    shineButton.setBtnFillColor(Color.RED);
-    shineButton.setAllowRandomColor(true);
+    Random rand = new Random();
+    while (reactContext.getCurrentActivity().findViewById(randomId = rand.nextInt(Integer.MAX_VALUE) + 1) != null);
+    final int viewId = randomId;
 
-    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(100, 100);
-    shineButton.setLayoutParams(layoutParams);
+    final ShineButton shineButton = new ShineButton(reactContext.getCurrentActivity());
+    final FrameLayout frameLayout = new FrameLayout(reactContext.getCurrentActivity());
 
-    FrameLayout frameLayout = new FrameLayout(reactContext.getCurrentActivity());
+    shineButton.setOnCheckStateChangeListener(new ShineButton.OnCheckedChangeListener() {
+      @Override
+      public void onCheckedChanged(View view, boolean checked) {
+       int id = frameLayout.getId();
+
+        reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher().dispatchEvent(
+                new ShineButtonEvent(
+                        id,
+                        checked));
+      }
+    });
+
+//    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(100, 100);
+//    shineButton.setLayoutParams(layoutParams);
+
+//    frameLayout.setId(viewId);
     frameLayout.addView(shineButton);
 
     return frameLayout;
+  }
+
+  @ReactProp(name = "size")
+  public void setSize(FrameLayout shineButtonFrame, int size) {
+    ShineButton shineButton = (ShineButton) shineButtonFrame.getChildAt(0);
+    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(size, size);
+    shineButton.setLayoutParams(layoutParams);
+  }
+
+  @ReactProp(name = "on")
+  public void setOn(FrameLayout shineButtonFrame, boolean on){
+    ShineButton shineButton = (ShineButton) shineButtonFrame.getChildAt(0);
+    shineButton.setChecked(on);
+  }
+
+  @ReactProp(name = "disabled", defaultBoolean = false)
+  public void setEnabled(FrameLayout shineButtonFrame, boolean disabled) {
+    ShineButton shineButton = (ShineButton) shineButtonFrame.getChildAt(0);
+    shineButton.setEnabled(!disabled);
   }
 
   @ReactProp(name = "color")
