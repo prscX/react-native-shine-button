@@ -1,7 +1,7 @@
 
-# React Native: Shine Button (Android/iOS)
-
 <img src="https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif">
+
+# React Native: Shine Button (Android/iOS)
 
 React Native Bridge for [ChadCSong/ShineButton](https://github.com/ChadCSong/ShineButton) & [imwcl/WCLShineButton](https://github.com/imwcl/WCLShineButton). Effects like shining.
 
