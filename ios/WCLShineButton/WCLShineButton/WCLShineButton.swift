@@ -52,9 +52,21 @@ public class WCLShineButton: UIControl {
     }
     
     /// button的图片
-    public var image: WCLShineImage = .heart {
+    @IBInspectable public var image: NSString = ".heart" {
         willSet {
-            clickLayer.image = newValue
+            switch newValue {
+            case ".heart":
+                clickLayer.image = .heart
+            case ".like":
+                clickLayer.image = .like
+            case ".smile":
+                clickLayer.image = .smile
+            case ".star":
+                clickLayer.image = .star
+            default:
+                clickLayer.image = .heart
+            }
+//            clickLayer.image = newValue
         }
     }
     
