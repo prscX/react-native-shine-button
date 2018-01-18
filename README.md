@@ -1,53 +1,57 @@
 
-# react-native-shine-button
+# React Native: Shine Button (Android/iOS)
+
+<img src="https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif">
+
+React Native Bridge for [ChadCSong/ShineButton](https://github.com/ChadCSong/ShineButton) & [imwcl/WCLShineButton](https://github.com/imwcl/WCLShineButton). Effects like shining.
+
+Before we dive into on how to use this library. We would like to thank all the contributor of [ChadCSong/ShineButton](https://github.com/ChadCSong/ShineButton) & [imwcl/WCLShineButton](https://github.com/imwcl/WCLShineButton) for providing such a awesome nice, cool library
 
 ## Getting started
 
-`$ npm install react-native-shine-button --save`
+- `$ npm install react-native-shine-button --save`
 
-### Mostly automatic installation
-
-`$ react-native link react-native-shine-button`
-
-### Manual installation
-
+- `$ react-native link react-native-shine-button`
 
 #### iOS
+- Add WCLShineButton.framework in Embedded Binaries & Linked Frameworks and Libraries. You can find this library from below path:
 
-1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-shine-button` and add `RNShineButton.xcodeproj`
-3. In XCode, in the project navigator, select your project. Add `libRNShineButton.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
+`node_modules/react-native-shine-button/ios/WCLShineButton/WCLShineButton.xcodeproj`
 
-#### Android
-
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.reactlibrary.RNShineButtonPackage;` to the imports at the top of the file
-  - Add `new RNShineButtonPackage()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-shine-button'
-  	project(':react-native-shine-button').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-shine-button/android')
-  	```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-      compile project(':react-native-shine-button')
-  	```
-
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
-
-1. In Visual Studio add the `RNShineButton.sln` in `node_modules/react-native-shine-button/windows/RNShineButton.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using Shine.Button.RNShineButton;` to the usings at the top of the file
-  - Add `new RNShineButtonPackage()` to the `List<IReactPackage>` returned by the `Packages` method
 
 
 ## Usage
+
 ```javascript
 import RNShineButton from 'react-native-shine-button';
 
-// TODO: What to do with the module?
-RNShineButton;
+<RNShineButton shape={"heart"} color={"#808080"} fillColor={"#ff0000"} size={50} />
+
 ```
-  
+
+## Props
+
+
+| Prop              | Type       | Default | Note                                                                                                       |
+| ----------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `shape`           | `JSON`     |         | The type of Shine Button you want. It's props are heart, like, star, smile |
+| `color`       | `JSON`     |         | Color which you want then the Shine Button is not active                                                            |
+| `fillColor`     | `Function` |         | Fill Color then the Shine Button is clicked                                                      |
+| `size` | `Function` |         | Size of Shine Button                                                   |  |
+| `disabled`    | `bool`     |         | Disabling the Shine Button                                        |  |
+| `value`      | `bool`     |         | Default value whether it is selected or not
+| `onChange`      | `func`     |         | It is invoke then the value of shine button is change
+
+
+## Credit
+- Android lib [ChadCSong/ShineButton](https://github.com/ChadCSong/ShineButton) Android implement. 
+- iOS lib [imwcl/WCLShineButton](https://github.com/imwcl/WCLShineButton) iOS implement
+
+## Contribution
+Contributions are welcome and are greatly appreciated! Every little bit helps, and credit will always be given.
+
+
+## License
+Copyright @2017 Pranav Raj Singh Chauhan
+
+RNShineButton is provided under the MIT License.
