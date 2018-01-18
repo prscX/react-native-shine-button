@@ -18,7 +18,7 @@ Before we dive into on how to use this library. We would like to thank all the c
 
 `node_modules/react-native-shine-button/ios/WCLShineButton/WCLShineButton.xcodeproj`
 
-
+<img src="assets/setup.png">
 
 ## Usage
 
