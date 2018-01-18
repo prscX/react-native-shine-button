@@ -24,10 +24,10 @@ const instructions = Platform.select({
 export default class App extends Component<{}> {
   render() {
     return <View style={styles.container}>
-        <RNShineButton shape={"heart"} color={"#808080"} fillColor={"#ff0000"} size={100} />
-        <RNShineButton shape={"like"} color={"#808080"} fillColor={"#3d7057"} size={100} />
-        <RNShineButton shape={"smile"} color={"#808080"} fillColor={"#703d3d"} size={100} />
-        <RNShineButton shape={"star"} color={"#808080"} fillColor={"#3d3d70"} size={100} />
+        <RNShineButton shape={"heart"} color={"#808080"} fillColor={"#ff0000"} size={50} />
+        <RNShineButton shape={"like"} color={"#808080"} fillColor={"#3d7057"} size={50} />
+        <RNShineButton shape={"smile"} color={"#808080"} fillColor={"#703d3d"} size={50} />
+        <RNShineButton shape={"star"} color={"#808080"} fillColor={"#3d3d70"} size={50} />
       </View>;
   }
 }

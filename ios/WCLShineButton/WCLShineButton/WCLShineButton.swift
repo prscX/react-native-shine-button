@@ -76,6 +76,11 @@ public class WCLShineButton: UIControl {
             clickLayer.clicked = isSelected
         }
     }
+
+    @IBInspectable public var getSelection: Bool {
+        print("Clicked: \(clickLayer.clicked)")
+        return clickLayer.clicked
+    }
     
     private var clickLayer = WCLShineClickLayer()
     
@@ -129,11 +134,12 @@ public class WCLShineButton: UIControl {
         super.touchesEnded(touches, with: event)
         if clickLayer.clicked == false {
             shineLayer.endAnim = { [weak self] in
-                self?.clickLayer.clicked = !(self?.clickLayer.clicked ?? false)
+//                self?.clickLayer.clicked = !(self?.clickLayer.clicked ?? false)
                 self?.clickLayer.startAnim()
-                self?.isSelected = self?.clickLayer.clicked ?? false
+//                self?.isSelected = self?.clickLayer.clicked ?? false
                 self?.sendActions(for: .valueChanged)
             }
+            clickLayer.clicked = true
             shineLayer.startAnim()
         }else {
             clickLayer.clicked = !clickLayer.clicked
@@ -143,7 +149,7 @@ public class WCLShineButton: UIControl {
     }
     
     //MARK: Privater Methods
-    private func initLayers() {
+    public func initLayers() {
         clickLayer.animDuration = params.animDuration/3
         shineLayer.params       = params
         clickLayer.frame = bounds

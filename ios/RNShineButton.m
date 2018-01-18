@@ -14,11 +14,13 @@ RCT_EXPORT_MODULE();
 - (void)handleTap:(UITapGestureRecognizer *)recognizer
 {
     WCLShineButton *shineButton = [recognizer view];
-    [shineButton touchesEnded:nil withEvent: nil];
 
+    [shineButton touchesEnded:nil withEvent: nil];
+    BOOL selection = [shineButton getSelection];
+    
     NSDictionary *event = @{
         @"target": shineButton.reactTag,
-        @"value": @([shineButton isSelected]),
+        @"value": selection ? @"YES" : @"NO",
         @"name": @"tap",
     };
     [self.bridge.eventDispatcher sendInputEventWithName:@"topChange" body:event];
@@ -26,51 +28,40 @@ RCT_EXPORT_MODULE();
 
 - (UIView *)view
 {
-    WCLShineButton *shineButton = [[WCLShineButton alloc] initWithFrame: CGRectMake(100, 100, 60, 60)];
+    UIView *view = [[UIView alloc] init];
+    return view;
+}
+
+RCT_CUSTOM_VIEW_PROPERTY(props, NSDictonary *, UIView)
+{
+    NSString *size = [json objectForKey: @"size"];
+    NSString *color = [json objectForKey: @"color"];
+    NSString *fillColor = [json objectForKey: @"fillColor"];
+
+    NSString *shape = [json objectForKey: @"shape"];
+    NSString *disabled = [json objectForKey: @"disabled"];
+    
+    WCLShineButton *shineButton = [[WCLShineButton alloc] initWithFrame: CGRectMake(0, 0, [size floatValue], [size floatValue])];
+    shineButton.color = [RNShineButton colorFromHexCode: color];
+    shineButton.fillColor = [RNShineButton colorFromHexCode: fillColor];
+    shineButton.reactTag = view.reactTag;
+    
+    if ([shape isEqualToString:@"heart"]) {
+        shineButton.image = @".heart";
+    } else if ([shape isEqualToString:@"like"]) {
+        shineButton.image = @".like";
+    } else if ([shape isEqualToString:@"smile"]) {
+        shineButton.image = @".smile";
+    } else if ([shape isEqualToString:@"star"]) {
+        shineButton.image = @".star";
+    }
 
     UITapGestureRecognizer *singleTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(handleTap:)];
     [shineButton addGestureRecognizer: singleTap];
     
-    return shineButton;
-}
-
-RCT_CUSTOM_VIEW_PROPERTY(color, NSString *, WCLShineButton)
-{
-    view.color = [RNShineButton colorFromHexCode: json];
-}
-
-RCT_CUSTOM_VIEW_PROPERTY(fillColor, NSString *, WCLShineButton)
-{
-    view.fillColor = [RNShineButton colorFromHexCode: json];
-}
-
-RCT_CUSTOM_VIEW_PROPERTY(disabled, BOOL, WCLShineButton)
-{
-
-}
-
-RCT_CUSTOM_VIEW_PROPERTY(shape, NSString *, WCLShineButton)
-{
-    if ([json isEqualToString:@"heart"]) {
-        view.image = @".heart";
-    } else if ([json isEqualToString:@"like"]) {
-        view.image = @".like";
-    } else if ([json isEqualToString:@"smile"]) {
-        view.image = @".smile";
-    } else if ([json isEqualToString:@"star"]) {
-        view.image = @".star";
-    }
-}
-
-
-RCT_CUSTOM_VIEW_PROPERTY(size, NSInteger *, WCLShineButton)
-{
-    float size = [json floatValue];
-    float increaseSize = size * 40 / 100;
-    
-//    [view setFrame: CGRectMake(increaseSize + size, increaseSize + size, size, size)];
+    [view addSubview: shineButton];
 }
 
 + (UIColor *) colorFromHexCode:(NSString *)hexString {
