@@ -67,6 +67,10 @@ RNShineButton is provided under the MIT License.
 ![Screenshots](https://github.com/KeepSafe/TapTargetView/raw/master/.github/video.gif)
 ![Screenshots](https://github.com/aromajoin/material-showcase-ios/raw/master/art/material-showcase.gif?raw=true)
 
+- React Native - Bottom Action Sheet: [react-native-bottom-action-sheet](https://github.com/prscX/react-native-bottom-action-sheet)
+
+![](https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/normal_demo.gif)
+
 - React Native Iconic: [react-native-iconic](https://github.com/prscX/react-native-iconic)
 ![Screenshots](https://camo.githubusercontent.com/b18993cbfe91de8abdc0019dc9a6cd44707eec21/68747470733a2f2f6431337961637572716a676172612e636c6f756466726f6e742e6e65742f75736572732f3338313133332f73637265656e73686f74732f313639363538302f766266706f70666c6174627574746f6e332e676966)
 
