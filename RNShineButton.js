@@ -20,7 +20,7 @@ class RNShineButton extends Component {
       if (Platform.OS === 'ios') {
       return <ShineButton ref={ref => {
             this._shineButton = ref;
-          }} style={{ width: this.props.size, height: this.props.size }}
+          }} style={{ width: this.props.width, height: this.props.height }}
           props={{
             size: this.props.size,
             on: this.props.value,
@@ -32,7 +32,7 @@ class RNShineButton extends Component {
       } else if (Platform.OS === 'android') {
       return <ShineButton {...this.props} ref={ref => {
             this._shineButton = ref;
-          }} style={{ width: this.props.size, height: this.props.size }} size={this.props.size} on={this.props.value} disable={this.props.disabled} shape={this.props.shape} color={this.props.color} fillColor={this.props.fillColor} onChange={this._onChange} />;
+          }} style={{ width: this.props.width, height: this.props.height }} size={this.props.size} on={this.props.value} disable={this.props.disabled} shape={this.props.shape} color={this.props.color} fillColor={this.props.fillColor} onChange={this._onChange} />;
 
       }
     }
