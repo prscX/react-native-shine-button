@@ -1,7 +1,16 @@
 
-# React Native: Shine Button (Android/iOS)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif">
+</p>
 
-<img src="https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif">
+<p align="center">
+  <a href="https://www.npmjs.com/package/react-native-shine-button"><img src="http://img.shields.io/npm/v/react-native-shine-button.svg?style=flat" /></a>
+  <a href="https://github.com/prscX/react-native-shine-button/pulls"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" /></a>
+  <a href="https://github.com/prscX/react-native-shine-button#License"><img src="https://img.shields.io/npm/l/react-native-shine-button.svg?style=flat" /></a>
+</p>
+
+
+# React Native: Shine Button (Android/iOS)
 
 React Native Bridge for [ChadCSong/ShineButton](https://github.com/ChadCSong/ShineButton) & [imwcl/WCLShineButton](https://github.com/imwcl/WCLShineButton). Effects like shining.
 
