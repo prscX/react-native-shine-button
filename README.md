@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif">
+  <img src="https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif" height="300" width="600" >
 </p>
 
 <p align="center">
