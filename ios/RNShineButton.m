@@ -40,6 +40,7 @@ RCT_CUSTOM_VIEW_PROPERTY(props, NSDictonary *, UIView)
 
     NSString *shape = [json objectForKey: @"shape"];
     NSString *disabled = [json objectForKey: @"disabled"];
+    NSNumber *on = [json objectForKey: @"on"];
     
     WCLShineButton *shineButton = [[WCLShineButton alloc] initWithFrame: CGRectMake(0, 0, [size floatValue], [size floatValue])];
     shineButton.color = [RNShineButton colorFromHexCode: color];
@@ -56,6 +57,10 @@ RCT_CUSTOM_VIEW_PROPERTY(props, NSDictonary *, UIView)
         shineButton.image = @".star";
     }
 
+    if ([on boolValue] == YES) {
+        [shineButton setSelected: YES];
+    }
+    
     UITapGestureRecognizer *singleTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(handleTap:)];

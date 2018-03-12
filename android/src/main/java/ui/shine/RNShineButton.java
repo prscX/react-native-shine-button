@@ -118,5 +118,9 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
         shineButton.setShapeResource(R.raw.star);
         break;
     }
+
+    if (shineButton.isChecked()) {
+      shineButton.setChecked(true);
+    }
   }
 }
