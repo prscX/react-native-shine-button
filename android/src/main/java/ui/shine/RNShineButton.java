@@ -72,7 +72,11 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
   @ReactProp(name = "size")
   public void setSize(FrameLayout shineButtonFrame, int size) {
     ShineButton shineButton = (ShineButton) shineButtonFrame.getChildAt(0);
-    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(size, size);
+
+    float density = shineButtonFrame.getContext().getResources().getDisplayMetrics().density;
+    int dpSize = Math.round(size * density);
+
+    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dpSize, dpSize);
     shineButton.setLayoutParams(layoutParams);
   }
 

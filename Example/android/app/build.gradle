@@ -106,6 +106,9 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        jackOptions {
+            enabled true
+        }
     }
     splits {
         abi {
