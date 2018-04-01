@@ -25,6 +25,9 @@ React Native Bridge for native [ChadCSong/ShineButton](https://github.com/ChadCS
 
 - `$ react-native link react-native-shine-button`
 
+- `$ react-native link react-native-vector-icons`
+
+
 #### Android
 
 - Please add below snippet to `defaultConfig` in app `build.gradle`file. This is with respect to [ISSUE: 1](https://github.com/prscX/react-native-shine-button/issues/1):
@@ -47,7 +50,21 @@ jackOptions {
 ```javascript
 import RNShineButton from 'react-native-shine-button';
 
-<RNShineButton shape={"heart"} color={"#808080"} fillColor={"#ff0000"} size={50} />
+<RNShineButton shape={"heart"} color={"#808080"} fillColor={"#ff0000"} size={100} />
+
+```
+
+
+## Vector Icons Usage
+Now you can even provide custom vector icons by using [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons). Please use below snippet:
+
+```javascript
+import RNShineButton from 'react-native-shine-button';
+import Icon from 'react-native-vector-icons/FontAwesome'
+
+let music = <Icon family={"FontAwesome"} name={"music"} color={"#808080"} />;
+
+<RNShineButton shape={music} color={"#808080"} fillColor={"#ff0000"} size={100} />
 
 ```
 
@@ -56,13 +73,14 @@ import RNShineButton from 'react-native-shine-button';
 
 | Prop              | Type       | Default | Note                                                                                                       |
 | ----------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------- |
-| `shape`           | `JSON`     |         | The type of Shine Button you want. It's props are heart, like, star, smile |
+| `shape`           | `string | react-native-vector-icons`     |         | The type of Shine Button you want. It's props are heart, like, star, smile. Even you are specify a react-native-vector-icons |
 | `color`       | `JSON`     |         | Color which you want then the Shine Button is not active                                                            |
 | `fillColor`     | `Function` |         | Fill Color then the Shine Button is clicked                                                      |
 | `size` | `Function` |         | Size of Shine Button                                                   |  |
 | `disabled`    | `bool`     |         | Disabling the Shine Button                                        |  |
 | `value`      | `bool`     |         | Default value whether it is selected or not
 | `onChange`      | `func`     |         | It is invoke then the value of shine button is change
+
 
 
 ## Credit
