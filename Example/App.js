@@ -13,17 +13,14 @@ import {
 } from 'react-native';
 
 import RNShineButton from 'react-native-shine-button'
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 export default class App extends Component<{}> {
   render() {
+    let music = <Icon family={"FontAwesome"} name={"music"} color={"#808080"} />;
+
     return <View style={styles.container}>
+        <RNShineButton shape={music} color={"#808080"} fillColor={"#ff0000"} size={100} value={false} />
         <RNShineButton shape={"heart"} color={"#808080"} fillColor={"#ff0000"} size={100} value={true} />
         <RNShineButton shape={"like"} color={"#808080"} fillColor={"#3d7057"} size={100} />
         <RNShineButton shape={"smile"} color={"#808080"} fillColor={"#703d3d"} size={100} />

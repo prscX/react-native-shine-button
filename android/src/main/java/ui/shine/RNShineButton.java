@@ -2,9 +2,19 @@
 package ui.shine;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.StrictMode;
+import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -18,24 +28,28 @@ import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.UIManagerModule;
 import com.facebook.react.uimanager.ViewGroupManager;
 
 import com.facebook.react.uimanager.annotations.ReactProp;
+import com.facebook.react.views.text.ReactFontManager;
 import com.sackcentury.shinebuttonlib.ShineButton;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class RNShineButton extends ViewGroupManager<ViewGroup> {
 
   public static final String REACT_CLASS = "RNShineButton";
 
+  private ThemedReactContext reactContext;
+
   private final String SHAPE_HEART = "heart";
   private final String SHAPE_LIKE = "like";
   private final String SHAPE_SMILE = "smile";
   private final String SHAPE_STAR = "star";
-
 
   @Override
   public String getName() {
@@ -44,6 +58,8 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
 
   @Override
   protected FrameLayout createViewInstance(final ThemedReactContext reactContext) {
+    this.reactContext = reactContext;
+
     int randomId;
 
     Random rand = new Random();
@@ -105,8 +121,18 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
   }
 
   @ReactProp(name = "shape")
-  public void setShape(FrameLayout shineButtonFrame, String shape) {
+  public void setShape(FrameLayout shineButtonFrame, ReadableMap shapeProps) {
     ShineButton shineButton = (ShineButton) shineButtonFrame.getChildAt(0);
+
+    String shape = null;
+    Drawable drawable = null;
+
+    if (shapeProps.hasKey("shape")) {
+      shape = shapeProps.getString("shape");
+    } else {
+      drawable = generateVectorIcon(shapeProps);
+      shape = shapeProps.getString("name");
+    }
 
     switch (shape) {
       case SHAPE_HEART:
@@ -121,10 +147,45 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
       case SHAPE_STAR:
         shineButton.setShapeResource(R.raw.star);
         break;
+      default:
+        if (drawable != null) {
+          shineButton.setShape(drawable);
+        }
     }
 
     if (shineButton.isChecked()) {
       shineButton.setChecked(true);
     }
+  }
+
+
+  private Drawable generateVectorIcon(ReadableMap icon) {
+    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+    StrictMode.setThreadPolicy(policy);
+
+    String family = icon.getString("family");
+    String name = icon.getString("name");
+    String glyph = icon.getString("glyph");
+    String color = icon.getString("color");
+    int size = icon.getInt("size");
+
+    float scale = reactContext.getResources().getDisplayMetrics().density;
+    String scaleSuffix = "@" + (scale == (int) scale ? Integer.toString((int) scale) : Float.toString(scale)) + "x";
+    int fontSize = Math.round(size * scale);
+
+    Typeface typeface = ReactFontManager.getInstance().getTypeface(family, 0, reactContext.getAssets());
+    Paint paint = new Paint();
+    paint.setTypeface(typeface);
+    paint.setColor(Color.parseColor(color));
+    paint.setTextSize(size);
+    paint.setAntiAlias(true);
+    Rect textBounds = new Rect();
+    paint.getTextBounds(glyph, 0, glyph.length(), textBounds);
+
+    Bitmap bitmap = Bitmap.createBitmap(textBounds.width(), textBounds.height(), Bitmap.Config.ARGB_8888);
+    Canvas canvas = new Canvas(bitmap);
+    canvas.drawText(glyph, -textBounds.left, -textBounds.top, paint);
+
+    return new BitmapDrawable(reactContext.getResources(), bitmap);
   }
 }

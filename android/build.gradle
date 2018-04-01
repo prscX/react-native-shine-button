@@ -27,11 +27,12 @@ android {
 }
 
 repositories {
-    mavenCentral()
+    jcenter()
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
-    compile 'com.sackcentury:shinebutton:0.2.0'
+//    compile 'com.sackcentury:shinebutton:0.2.0'
+    compile 'com.github.prscX:ShineButton:0.2.1'
 }
-  
