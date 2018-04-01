@@ -68,6 +68,11 @@ let music = <Icon family={"FontAwesome"} name={"music"} color={"#808080"} />;
 
 ```
 
+> **Note:**
+> - We have added `family` prop for `Icon` class, please make sure that you pass the props
+
+
+
 ## Props
 
 
