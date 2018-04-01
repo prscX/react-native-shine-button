@@ -78,7 +78,7 @@ let music = <Icon family={"FontAwesome"} name={"music"} color={"#808080"} />;
 
 | Prop              | Type       | Default | Note                                                                                                       |
 | ----------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------- |
-| `shape`           | `string | react-native-vector-icons`     |         | The type of Shine Button you want. It's props are heart, like, star, smile. Even you are specify a react-native-vector-icons |
+| `shape`           | `string OR react-native-vector-icons`     |         | The type of Shine Button you want. It's props are heart, like, star, smile. Even you are specify a react-native-vector-icons |
 | `color`       | `JSON`     |         | Color which you want then the Shine Button is not active                                                            |
 | `fillColor`     | `Function` |         | Fill Color then the Shine Button is clicked                                                      |
 | `size` | `Function` |         | Size of Shine Button                                                   |  |
