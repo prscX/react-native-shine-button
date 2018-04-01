@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/custom-hero.gif" height="300" width="600" >
+  <img src="./assets/hero.gif" height="300" width="600" >
 </p>
 
 
