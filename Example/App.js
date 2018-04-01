@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "stretch",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: "#fafafa"
   },
   subContainer: {
     flex: 1,
