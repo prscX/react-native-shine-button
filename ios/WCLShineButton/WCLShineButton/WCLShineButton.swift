@@ -70,6 +70,13 @@ public class WCLShineButton: UIControl {
         }
     }
     
+    @objc public var customImage: UIImage = UIImage() {
+        willSet {
+            let image = WCLShineImage.custom(newValue)
+            clickLayer.image = image
+        }
+    }
+    
     /// 是否点击的状态
     public override var isSelected: Bool {
         didSet {
