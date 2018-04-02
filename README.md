@@ -30,11 +30,30 @@ React Native Bridge for native [ChadCSong/ShineButton](https://github.com/ChadCS
 
 #### Android
 
-- Please add below snippet to `defaultConfig` in app `build.gradle`file. This is with respect to [ISSUE: 1](https://github.com/prscX/react-native-shine-button/issues/1):
+- Please add below snippet to `defaultConfig` in your app `build.gradle`file. This is with respect to [ISSUE: 1](https://github.com/prscX/react-native-shine-button/issues/1):
 
 ```
 jackOptions {
     enabled true
+}
+```
+
+- Please add below snippet above `dependencies` in your app `build.gradle`:
+
+```
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
 }
 ```
 
