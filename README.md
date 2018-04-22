@@ -70,11 +70,11 @@ allprojects {
 
 - If you receive below error, please check video below in order to resolve the same:
 
-    <img src="./assets/swift-error.png">
+<img src="./assets/swift-error.png">
 
     **SOLUTION**
 
-    <img src="./assets/swift-error.gif" />
+<img src="./assets/swift-error.gif" />
 
 
 ## Usage
