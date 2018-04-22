@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-shine-button",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description":
     "React Native Bridge for ChadCSong/ShineButton & imwcl/WCLShineButton",
   "main": "js/RNShineButton.js",

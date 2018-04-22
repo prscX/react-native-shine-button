@@ -58,11 +58,24 @@ allprojects {
 ```
 
 #### iOS
+- Run Command: `cd ../node_modules/react-native-shine-button/ios && pod install`. If it has error => try `pod repo update` then `pod install`
+
 - Add WCLShineButton.framework in Embedded Binaries & Linked Frameworks and Libraries. You can find this library from below path:
 
 `node_modules/react-native-shine-button/ios/WCLShineButton/WCLShineButton.xcodeproj`
 
-<img src="assets/setup.png">
+    <img src="assets/setup.gif">
+
+- Now build your iOS app through Xcode
+
+- If you receive below error, please check video below in order to resolve the same:
+
+    <img src="./assets/swift-error.png">
+
+    **SOLUTION**
+
+    <img src="./assets/swift-error.gif" />
+
 
 ## Usage
 
