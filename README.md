@@ -62,9 +62,9 @@ allprojects {
 
 - Add WCLShineButton.framework in Embedded Binaries & Linked Frameworks and Libraries. You can find this library from below path:
 
-`node_modules/react-native-shine-button/ios/WCLShineButton/WCLShineButton.xcodeproj`
+    `node_modules/react-native-shine-button/ios/WCLShineButton/WCLShineButton.xcodeproj`
 
-    <img src="assets/setup.gif">
+    <img src="assets/setup.gif" />
 
 - Now build your iOS app through Xcode
 
