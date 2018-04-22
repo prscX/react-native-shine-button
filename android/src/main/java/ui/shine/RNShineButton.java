@@ -96,8 +96,8 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
     shineButton.setLayoutParams(layoutParams);
   }
 
-  @ReactProp(name = "on")
-  public void setOn(FrameLayout shineButtonFrame, boolean on){
+  @ReactProp(name = "value")
+  public void setValue(FrameLayout shineButtonFrame, boolean on){
     ShineButton shineButton = (ShineButton) shineButtonFrame.getChildAt(0);
     shineButton.setChecked(on);
   }

@@ -26,61 +26,65 @@ RCT_EXPORT_MODULE();
     [self.bridge.eventDispatcher sendInputEventWithName:@"topChange" body:event];
 }
 
-- (UIView *)view
-{
-    UIView *view = [[UIView alloc] init];
-    return view;
-}
+- (WCLShineButton *)view {
+    WCLShineButton *shineButton = [[WCLShineButton alloc] init];
 
-RCT_CUSTOM_VIEW_PROPERTY(props, NSDictonary *, UIView)
-{
-    NSString *size = [json objectForKey: @"size"];
-    NSString *color = [json objectForKey: @"color"];
-    NSString *fillColor = [json objectForKey: @"fillColor"];
-
-    NSDictionary *shapeProps = [json objectForKey: @"shape"];
-    NSString *disabled = [json objectForKey: @"disabled"];
-    NSNumber *on = [json objectForKey: @"on"];
-    
-    WCLShineButton *shineButton = [[WCLShineButton alloc] initWithFrame: CGRectMake(0, 0, [size floatValue], [size floatValue])];
-    shineButton.color = [RNShineButton colorFromHexCode: color];
-    shineButton.fillColor = [RNShineButton colorFromHexCode: fillColor];
-    shineButton.reactTag = view.reactTag;
-    
-    NSString *shape;
-    UIImage *drawable;
-    if (![shapeProps objectForKey: @"shape"]) {
-        drawable = [self generateVectorIcon: shapeProps];
-        shape = [shapeProps objectForKey: @"name"];
-    } else {
-        shape = [shapeProps objectForKey: @"shape"];
-    }
-    
-    if ([shape isEqualToString:@"heart"]) {
-        shineButton.image = @".heart";
-    } else if ([shape isEqualToString:@"like"]) {
-        shineButton.image = @".like";
-    } else if ([shape isEqualToString:@"smile"]) {
-        shineButton.image = @".smile";
-    } else if ([shape isEqualToString:@"star"]) {
-        shineButton.image = @".star";
-    } else {
-        if (drawable != nil) {
-            shineButton.customImage = drawable;
-        }
-    }
-
-    if ([on boolValue] == YES) {
-        [shineButton setSelected: YES];
-    }
-    
     UITapGestureRecognizer *singleTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(handleTap:)];
     [shineButton addGestureRecognizer: singleTap];
     
-    [view addSubview: shineButton];
+    return shineButton;
 }
+
+
+RCT_CUSTOM_VIEW_PROPERTY(size, NSInteger *, WCLShineButton) {
+    view.frame = CGRectMake(0, 0, [json floatValue], [json floatValue]);
+    [view initLayers];
+}
+
+RCT_CUSTOM_VIEW_PROPERTY(color, NSString *, WCLShineButton) {
+    view.color = [RNShineButton colorFromHexCode: json];
+}
+
+RCT_CUSTOM_VIEW_PROPERTY(fillColor, NSString *, WCLShineButton) {
+    view.fillColor = [RNShineButton colorFromHexCode: json];
+}
+
+RCT_CUSTOM_VIEW_PROPERTY(value, NSInteger *, WCLShineButton) {
+    if ([json boolValue] == YES) {
+        [view setSelected: YES];
+    } else {
+        [view setSelected: NO];
+    }
+}
+
+RCT_CUSTOM_VIEW_PROPERTY(shape, NSDictonary *, WCLShineButton) {
+    NSString *shape;
+    UIImage *drawable;
+
+    if (![json objectForKey: @"shape"]) {
+        drawable = [self generateVectorIcon: json];
+        shape = [json objectForKey: @"name"];
+    } else {
+        shape = [json objectForKey: @"shape"];
+    }
+    
+    if ([shape isEqualToString:@"heart"]) {
+        view.image = @".heart";
+    } else if ([shape isEqualToString:@"like"]) {
+        view.image = @".like";
+    } else if ([shape isEqualToString:@"smile"]) {
+        view.image = @".smile";
+    } else if ([shape isEqualToString:@"star"]) {
+        view.image = @".star";
+    } else {
+        if (drawable != nil) {
+            view.customImage = drawable;
+        }
+    }
+}
+
 
 + (UIColor *) colorFromHexCode:(NSString *)hexString {
     NSString *cleanString = [hexString stringByReplacingOccurrencesOfString:@"#" withString:@""];

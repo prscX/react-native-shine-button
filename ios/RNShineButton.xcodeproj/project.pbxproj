@@ -8,23 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RNShineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNShineButton.m */; };
-		CE08855A200A233000641FD4 /* WCLShineButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE088556200A232400641FD4 /* WCLShineButton.framework */; };
+		CE0D2C20208C63F000727B17 /* WCLShineButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D2C1D208C63B100727B17 /* WCLShineButton.framework */; };
+		CE0D2C21208C63FD00727B17 /* WCLShineButton.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE0D2C1D208C63B100727B17 /* WCLShineButton.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CE088555200A232400641FD4 /* PBXContainerItemProxy */ = {
+		CE0D2C1A208C63B100727B17 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CE088550200A232400641FD4 /* WCLShineButton.xcodeproj */;
+			containerPortal = CE0D2C15208C63B000727B17 /* Pods.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9773F93C1E547C060011CBEF;
-			remoteInfo = WCLShineButton;
+			remoteGlobalIDString = B7E639DC672A27CFD2B8D2E59213162A;
+			remoteInfo = "Pods-RNShineButton";
 		};
-		CE088557200A232400641FD4 /* PBXContainerItemProxy */ = {
+		CE0D2C1C208C63B100727B17 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CE088550200A232400641FD4 /* WCLShineButton.xcodeproj */;
+			containerPortal = CE0D2C15208C63B000727B17 /* Pods.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9721D6151E5576D8003C31EF;
-			remoteInfo = Demo;
+			remoteGlobalIDString = 4B34D5014B7F3B79CCB1E5250FE37FED;
+			remoteInfo = WCLShineButton;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -35,6 +36,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CE0D2C21208C63FD00727B17 /* WCLShineButton.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,9 +44,11 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNShineButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNShineButton.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E1FD85057851335DC73BC5C /* Pods-RNShineButton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNShineButton.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RNShineButton/Pods-RNShineButton.debug.xcconfig"; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNShineButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNShineButton.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNShineButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNShineButton.m; sourceTree = "<group>"; };
-		CE088550200A232400641FD4 /* WCLShineButton.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WCLShineButton.xcodeproj; path = WCLShineButton/WCLShineButton.xcodeproj; sourceTree = "<group>"; };
+		BAC83427BCEF4D079D359241 /* Pods-RNShineButton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNShineButton.release.xcconfig"; path = "Pods/Target Support Files/Pods-RNShineButton/Pods-RNShineButton.release.xcconfig"; sourceTree = "<group>"; };
+		CE0D2C15208C63B000727B17 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE08855A200A233000641FD4 /* WCLShineButton.framework in Frameworks */,
+				CE0D2C20208C63F000727B17 /* WCLShineButton.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,31 +71,41 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4CEB9ED3908F1DA06A1C8460 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6E1FD85057851335DC73BC5C /* Pods-RNShineButton.debug.xcconfig */,
+				BAC83427BCEF4D079D359241 /* Pods-RNShineButton.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
 				B3E7B5881CC2AC0600A0062D /* RNShineButton.h */,
 				B3E7B5891CC2AC0600A0062D /* RNShineButton.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
-				CE088550200A232400641FD4 /* WCLShineButton.xcodeproj */,
 				CE088559200A233000641FD4 /* Frameworks */,
+				4CEB9ED3908F1DA06A1C8460 /* Pods */,
 			);
-			sourceTree = "<group>";
-		};
-		CE088551200A232400641FD4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CE088556200A232400641FD4 /* WCLShineButton.framework */,
-				CE088558200A232400641FD4 /* Demo.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		CE088559200A233000641FD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE0D2C15208C63B000727B17 /* Pods.xcodeproj */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE0D2C16208C63B000727B17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE0D2C1B208C63B100727B17 /* Pods_RNShineButton.framework */,
+				CE0D2C1D208C63B100727B17 /* WCLShineButton.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -101,9 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNShineButton" */;
 			buildPhases = (
+				83747C2E3105E8D1DC27538D /* [CP] Check Pods Manifest.lock */,
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
+				352CA989B332D62C4669DCF3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,8 +156,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = CE088551200A232400641FD4 /* Products */;
-					ProjectRef = CE088550200A232400641FD4 /* WCLShineButton.xcodeproj */;
+					ProductGroup = CE0D2C16208C63B000727B17 /* Products */;
+					ProjectRef = CE0D2C15208C63B000727B17 /* Pods.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -152,21 +168,57 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		CE088556200A232400641FD4 /* WCLShineButton.framework */ = {
+		CE0D2C1B208C63B100727B17 /* Pods_RNShineButton.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_RNShineButton.framework;
+			remoteRef = CE0D2C1A208C63B100727B17 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CE0D2C1D208C63B100727B17 /* WCLShineButton.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = WCLShineButton.framework;
-			remoteRef = CE088555200A232400641FD4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CE088558200A232400641FD4 /* Demo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Demo.app;
-			remoteRef = CE088557200A232400641FD4 /* PBXContainerItemProxy */;
+			remoteRef = CE0D2C1C208C63B100727B17 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		352CA989B332D62C4669DCF3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RNShineButton/Pods-RNShineButton-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83747C2E3105E8D1DC27538D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RNShineButton-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
@@ -263,6 +315,7 @@
 		};
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E1FD85057851335DC73BC5C /* Pods-RNShineButton.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -279,6 +332,7 @@
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAC83427BCEF4D079D359241 /* Pods-RNShineButton.release.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

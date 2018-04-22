@@ -16,6 +16,24 @@ import RNShineButton from 'react-native-shine-button'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 export default class App extends Component<{}> {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      visible: true
+    }
+  }
+
+  componentDidMount () {
+    setInterval(
+      () => {
+        this.setState({
+          visible: !this.state.visible
+        })
+      }, 1000
+    )
+  }
+
   render() {
     let music = <Icon family={"FontAwesome"} name={"music"} color={"#808080"} />;
     let comment = <Icon family={"FontAwesome"} name={"comment"} color={"#808080"} />;
@@ -30,10 +48,10 @@ export default class App extends Component<{}> {
           <RNShineButton shape={"star"} color={"#808080"} fillColor={"#3d3d70"} size={100} />
         </View>
         <View style={styles.subContainer}>
-          <RNShineButton shape={music} color={"#808080"} fillColor={"#ff0000"} size={100} value={true} />
-          <RNShineButton shape={comment} color={"#808080"} fillColor={"#3d7057"} size={100} />
-          <RNShineButton shape={microphone} color={"#808080"} fillColor={"#703d3d"} size={100} />
-          <RNShineButton shape={play} color={"#808080"} fillColor={"#3d3d70"} size={100} />
+          <RNShineButton shape={music} color={"#808080"} fillColor={"#ff0000"} size={100} value={this.state.visible} />
+          <RNShineButton shape={comment} color={"#808080"} fillColor={"#3d7057"} size={100} value={this.state.visible} />
+          <RNShineButton shape={microphone} color={"#808080"} fillColor={"#703d3d"} size={100} value={this.state.visible} />
+          <RNShineButton shape={play} color={"#808080"} fillColor={"#3d3d70"} size={100} value={this.state.visible} />
         </View>
       </View>;
   }
