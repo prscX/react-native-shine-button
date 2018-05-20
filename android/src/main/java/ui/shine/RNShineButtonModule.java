@@ -21,11 +21,8 @@ import java.util.ArrayList;
 
 public class RNShineButtonModule extends ReactContextBaseJavaModule {
 
-    private final ReactApplicationContext reactContext;
-
     public RNShineButtonModule(ReactApplicationContext reactContext) {
         super(reactContext);
-        this.reactContext = reactContext;
     }
 
     @Override

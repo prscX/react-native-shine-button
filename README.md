@@ -1,10 +1,10 @@
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif" height="300" width="600" >
+  <img src="https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif" height="300" >
 </p>
 
 <p align="center">
-  <img src="./assets/hero.gif" height="300" width="600" >
+  <img src="./assets/hero.gif" height="300" >
 </p>
 
 
@@ -44,6 +44,7 @@ jackOptions {
 buildscript {
     repositories {
         jcenter()
+        google()
         maven { url "https://jitpack.io" }
     }
 
@@ -52,10 +53,13 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        google()
         maven { url "https://jitpack.io" }
     }
 }
 ```
+> **Note:** This library is supported on Android SDK 27 > above
+
 
 #### iOS
 - Run Command: `cd ../node_modules/react-native-shine-button/ios && pod install`. If it has error => try `pod repo update` then `pod install`

@@ -160,6 +160,8 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
 
 
   private Drawable generateVectorIcon(ReadableMap icon) {
+    Context context = reactContext.getApplicationContext();
+
     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
     StrictMode.setThreadPolicy(policy);
 
@@ -169,11 +171,11 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
     String color = icon.getString("color");
     int size = icon.getInt("size");
 
-    float scale = reactContext.getResources().getDisplayMetrics().density;
+    float scale = context.getResources().getDisplayMetrics().density;
     String scaleSuffix = "@" + (scale == (int) scale ? Integer.toString((int) scale) : Float.toString(scale)) + "x";
     int fontSize = Math.round(size * scale);
 
-    Typeface typeface = ReactFontManager.getInstance().getTypeface(family, 0, reactContext.getAssets());
+    Typeface typeface = ReactFontManager.getInstance().getTypeface(family, 0, context.getAssets());
     Paint paint = new Paint();
     paint.setTypeface(typeface);
     paint.setColor(Color.parseColor(color));
@@ -186,6 +188,6 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
     Canvas canvas = new Canvas(bitmap);
     canvas.drawText(glyph, -textBounds.left, -textBounds.top, paint);
 
-    return new BitmapDrawable(reactContext.getResources(), bitmap);
+    return new BitmapDrawable(context.getResources(), bitmap);
   }
 }
