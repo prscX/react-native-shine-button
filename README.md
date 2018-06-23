@@ -1,12 +1,4 @@
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif" height="300" >
-</p>
-
-<p align="center">
-  <img src="./assets/hero.gif" height="300" >
-</p>
-
+<h1 align="center">
 
 <p align="center">
   <a href="https://www.npmjs.com/package/react-native-shine-button"><img src="http://img.shields.io/npm/v/react-native-shine-button.svg?style=flat" /></a>
@@ -15,11 +7,25 @@
 </p>
 
 
-# React Native: Shine Button (Android/iOS)
+    ReactNative: Native Shine Button (Android/iOS)
 
-React Native Bridge for native [ChadCSong/ShineButton](https://github.com/ChadCSong/ShineButton) & [imwcl/WCLShineButton](https://github.com/imwcl/WCLShineButton). Effects like shining.
+If this project has helped you out, please support us with a star 🌟
+</h1>
 
-## Getting started
+This library is a React Native bridge around native Siri wave animation:
+
+
+| **[Android: ChadCSong/ShineButton](https://github.com/ChadCSong/ShineButton) & [iOS: imwcl/WCLShineButton](https://github.com/imwcl/WCLShineButton)**             |
+| ----------------- |
+| <img src="https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif" />                  |
+
+|              |
+| ----------------- |
+| <img src="./assets/hero.gif" />                  |
+
+
+
+## 📖 Getting started
 
 - `$ npm install react-native-shine-button --save`
 
@@ -81,7 +87,7 @@ allprojects {
     <img src="./assets/swift-error.gif" />
 
 
-## Usage
+## 💻 Usage
 
 ```javascript
 import RNShineButton from 'react-native-shine-button';
@@ -109,7 +115,7 @@ let music = <Icon family={"FontAwesome"} name={"music"} color={"#808080"} />;
 
 
 
-## Props
+## 💡 Props
 
 
 | Prop              | Type       | Default | Note                                                                                                       |
@@ -123,17 +129,35 @@ let music = <Icon family={"FontAwesome"} name={"music"} color={"#808080"} />;
 | `onChange`      | `func`     |         | It is invoke then the value of shine button is change
 
 
+## ✨ Credits
 
-## Credit
 - Android lib [ChadCSong/ShineButton](https://github.com/ChadCSong/ShineButton) Android implement. 
 - iOS lib [imwcl/WCLShineButton](https://github.com/imwcl/WCLShineButton) iOS implement
 
-## Contribution
+## 🤔 How to contribute
+Have an idea? Found a bug? Please raise to [ISSUES](https://github.com/prscX/react-native-bottom-action-sheet/issues).
 Contributions are welcome and are greatly appreciated! Every little bit helps, and credit will always be given.
 
+## 💫 Where is this library used?
+If you are using this library in one of your projects, add it in this list below. ✨
 
-## License
-Copyright @ Pranav Raj Singh Chauhan
 
-RNShineButton is provided under the Apache License.
+## 📜 License
+This library is provided under the Apache 2 License.
 
+RNShineButton @ [prscX](https://github.com/prscX)
+
+## 💖 Support my projects
+I open-source almost everything I can, and I try to reply everyone needing help using these projects. Obviously, this takes time. You can integrate and use these projects in your applications for free! You can even change the source code and redistribute (even resell it).
+
+However, if you get some profit from this or just want to encourage me to continue creating stuff, there are few ways you can do it:
+* Starring and sharing the projects you like 🚀
+* If you're feeling especially charitable, please follow [prscX](https://github.com/prscX) on GitHub.
+
+  <a href="https://www.buymeacoffee.com/prscX" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
+  Thanks! ❤️
+  <br/>
+  [prscX.github.io](https://prscx.github.io)
+  <br/>
+  </ Pranav >

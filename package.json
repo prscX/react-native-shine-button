@@ -20,5 +20,5 @@
   "devDependencies": {
     "prettier-pack": "0.0.6"
   },
-  "license": "MIT"
+  "license": "Apache License"
 }
