@@ -68,23 +68,13 @@ allprojects {
 
 
 #### iOS
-- Run Command: `cd ../node_modules/react-native-shine-button/ios && pod install`. If it has error => try `pod repo update` then `pod install`
-
-- Add WCLShineButton.framework in Embedded Binaries & Linked Frameworks and Libraries. You can find this library from below path:
-
-    `node_modules/react-native-shine-button/ios/WCLShineButton/WCLShineButton.xcodeproj`
+  - After `react-native link react-native-shine-button`, please verify `node_modules/react-native-shine-button/ios/` contains `Pods` folder. If does not exist please execute `pod install` command on `node_modules/react-native-shine-button/ios/`, if any error => try `pod repo update` then `pod install`
+  - After verification, open your project and create a folder 'RNShineButton' under Libraries.
+  - Drag `node_modules/react-native-shine-button/ios/pods/Pods.xcodeproject` into RNShineButton, as well as the RNShineButton.xcodeproject if it does not exist.
+  - Add the `WCLShineButton.framework` into your project's `Embedded Binaries` and make sure the framework is also in linked libraries.
+  - Go to your project's `Build Settings -> Framework Search Path` and set `$(inherited) to recursive`.
 
     <img src="assets/setup.gif" />
-
-- Now build your iOS app through Xcode
-
-- If you receive below error, please check video below in order to resolve the same:
-
-    <img src="./assets/swift-error.png" />
-
-    **SOLUTION**
-
-    <img src="./assets/swift-error.gif" />
 
 
 ## 💻 Usage
@@ -143,7 +133,7 @@ If you are using this library in one of your projects, add it in this list below
 
 
 ## 📜 License
-This library is provided under the Apache 2 License.
+This library is provided under the Apache License.
 
 RNShineButton @ [prscX](https://github.com/prscX)
 

@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-shine-button",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description":
     "React Native Bridge for ChadCSong/ShineButton & imwcl/WCLShineButton",
   "main": "js/RNShineButton.js",
@@ -10,7 +10,8 @@
     "url": "https://github.com/prscX/react-native-shine-button.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node scripts/installer.js"
   },
   "keywords": ["react-native"],
   "author": "Pranav Raj Singh Chauhan",
