@@ -16,7 +16,7 @@
     "babel-preset-react-native": "4.0.0",
     "jest": "22.0.6",
     "react-test-renderer": "16.2.0",
-    "prettier-pack": "0.0.4"
+    "prettier-pack": "0.0.7"
   },
   "jest": {
     "preset": "react-native"

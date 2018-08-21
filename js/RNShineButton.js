@@ -21,12 +21,10 @@ class RNShineButton extends PureComponent {
     let shape;
     if (this.props.shape && this.props.shape.props) {
       let icon = this.props.shape.props;
-      let glyph = RNVectorHelper.Resolve(icon.family, icon.name);
+      let vectorIcon = RNVectorHelper.Resolve(icon.family, icon.name);
 
-      shape = Object.assign({}, icon, {
-        glyph: glyph,
-        size: this.props.size
-      });
+      shape = Object.assign({}, icon, vectorIcon);
+      shape = Object.assign({}, shape, { size: this.props.size });
     } else {
       shape = {
         shape: this.props.shape
