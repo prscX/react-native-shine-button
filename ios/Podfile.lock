@@ -1,0 +1,22 @@
+PODS:
+  - WCLShineButton (1.0.7)
+
+DEPENDENCIES:
+  - WCLShineButton (from `https://github.com/prscX/WCLShineButton.git`, commit `ddd4deb`)
+
+EXTERNAL SOURCES:
+  WCLShineButton:
+    :commit: ddd4deb
+    :git: https://github.com/prscX/WCLShineButton.git
+
+CHECKOUT OPTIONS:
+  WCLShineButton:
+    :commit: ddd4deb
+    :git: https://github.com/prscX/WCLShineButton.git
+
+SPEC CHECKSUMS:
+  WCLShineButton: 7c2e77b054116718a8a6dc78be3ea4c1249ece45
+
+PODFILE CHECKSUM: 00b422214aaf56a00c6ed6f0a04f7bdf9cf282f1
+
+COCOAPODS: 1.8.4
