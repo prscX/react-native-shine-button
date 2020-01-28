@@ -17,7 +17,6 @@ This library is a React Native bridge around native Siri wave animation:
 
 | **[Android: ChadCSong/ShineButton](https://github.com/ChadCSong/ShineButton) & [iOS: imwcl/WCLShineButton](https://github.com/imwcl/WCLShineButton)**             |
 | ----------------- |
-| <img src="https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif" />                  |
 
 |              |
 | ----------------- |
