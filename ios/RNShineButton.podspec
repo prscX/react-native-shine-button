@@ -1,28 +1,22 @@
 require 'json'
 
-package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
+package = JSON.parse(File.read(File.join(__dir__, '../package.json')))
 
 Pod::Spec.new do |s|
-  s.name         = "RNShineButton"
-  s.version      = package['version']
-  s.summary      = package['description']
-  s.description  = package["description"]
-  s.homepage     = "n/a"
-  s.license      = package['license']
-  s.author       = package['author']
-  s.platform     = :ios, "9.0"
-  s.ios.deployment_target = '9.0'
-  s.library        = 'z'
-  s.preserve_paths = '*.js'
-  s.source       = { :git => "https://github.com/author/RNShineButton.git", :tag => "master" }
-  s.source_files  = "RNShineButton/**/*.{h,m}"
-  s.requires_arc = true
-  s.static_framework = true
+  s.name                   = 'RNShineButton'
+  s.version                = package['version']
+  s.summary                = package['description']
+  s.description            = package['description']
+  s.homepage               = package['homepage']
+  s.license                = package['license']
+  s.author                 = package['author']
+  s.source                 = { :git => 'https://github.com/prscX/react-native-shine-button.git', :tag => s.version }
 
+  s.platform               = :ios, '9.0'
+  s.ios.deployment_target  = '8.0'
 
-  s.dependency "React"
-  #s.dependency "others"
-
+  s.preserve_paths         = 'LICENSE', 'package.json'
+  s.source_files           = '**/*.{h,m}'
+  s.dependency             'React'
+  s.dependency             'WCLShineButton'
 end
-
-  

@@ -12,9 +12,10 @@ import ZocialGlyphMap from "react-native-vector-icons/glyphmaps/Zocial.json";
 
 import { Platform } from "react-native";
 
+
 class RNVectorHelper {
   static Resolve(family, name) {
-    let glyph, fontFamily;
+    let glyph, fontFamily
 
     switch (family) {
       case "Entypo":
@@ -22,7 +23,7 @@ class RNVectorHelper {
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
-        fontFamily = "Entypo";
+        fontFamily = "Entypo"
 
         return { glyph: glyph, family: fontFamily };
       case "EvilIcons":
@@ -30,7 +31,7 @@ class RNVectorHelper {
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
-        fontFamily = "EvilIcons";
+        fontFamily = "EvilIcons"
 
         return { glyph: glyph, family: fontFamily };
       case "Feather":
@@ -38,7 +39,7 @@ class RNVectorHelper {
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
-        fontFamily = "Feather";
+        fontFamily = "Feather"
 
         return { glyph: glyph, family: fontFamily };
       case "FontAwesome":
@@ -56,7 +57,7 @@ class RNVectorHelper {
         }
 
         if (Platform.OS === "ios") {
-          fontFamily = "fontcustom";
+          fontFamily = "fontcustom"
         } else {
           fontFamily = "Foundation";
         }
@@ -67,7 +68,7 @@ class RNVectorHelper {
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
-        fontFamily = "Ionicons";
+        fontFamily = "Ionicons"
 
         return { glyph: glyph, family: fontFamily };
       case "MaterialCommunityIcons":
@@ -77,7 +78,7 @@ class RNVectorHelper {
         }
 
         if (Platform.OS === "ios") {
-          fontFamily = "Material Design Icons";
+          fontFamily = "Material Design Icons"
         } else {
           fontFamily = "MaterialCommunityIcons";
         }
@@ -90,7 +91,7 @@ class RNVectorHelper {
         }
 
         if (Platform.OS === "ios") {
-          fontFamily = "Material Icons";
+          fontFamily = "Material Icons"
         } else {
           fontFamily = "MaterialIcons";
         }
@@ -110,10 +111,10 @@ class RNVectorHelper {
           glyph = String.fromCharCode(glyph);
         }
 
-        if (Platform.OS === "ios") {
+        if (Platform.OS === 'ios') {
           fontFamily = "simple-line-icons";
         } else {
-          fontFamily = "SimpleLineIcons";
+          fontFamily = "SimpleLineIcons"
         }
 
         return { glyph: glyph, family: fontFamily };

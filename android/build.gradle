@@ -1,24 +1,30 @@
 
-buildscript {
-    repositories {
-        jcenter()
-        maven { url "https://maven.google.com" }
-    }
+apply plugin: 'com.android.library'
 
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+buildscript {
+    if (project == rootProject) {
+        repositories {
+            google()
+            jcenter()
+        }
+
+        dependencies {
+            classpath("com.android.tools.build:gradle:3.5.3")
+        }
     }
 }
 
-apply plugin: 'com.android.library'
-
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion safeExtGet('compileSdkVersion', 28)
+    buildToolsVersion safeExtGet('buildToolsVersion', '28.0.3')
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 27
+        minSdkVersion safeExtGet('minSdkVersion', 16)
+        targetSdkVersion safeExtGet('targetSdkVersion', 28)
         versionCode 1
         versionName "1.0"
     }
@@ -28,13 +34,12 @@ android {
 }
 
 repositories {
-    jcenter()
-    maven { url "https://maven.google.com" }
-    maven { url "https://jitpack.io" }
+    google()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-//    compile 'com.sackcentury:shinebutton:d992d780328ae8ccce3e9ea4acfeef69186986d3'
     implementation 'com.github.prscX:ShineButton:0.2.1'
 }

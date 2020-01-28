@@ -6,6 +6,7 @@
 #endif
 
 #import <WCLShineButton/WCLShineButton-Swift.h>
+#import <React/RCTComponentEvent.h>
 
 @interface RNShineButton : RCTViewManager
 

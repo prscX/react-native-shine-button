@@ -1,7 +1,6 @@
 
 #import "RNShineButton.h"
 
-
 @implementation RNShineButton
 
 - (dispatch_queue_t)methodQueue
@@ -23,7 +22,11 @@ RCT_EXPORT_MODULE();
         @"value": selection ? @"YES" : @"NO",
         @"name": @"tap",
     };
-    [self.bridge.eventDispatcher sendInputEventWithName:@"topChange" body:event];
+    
+    RCTComponentEvent *cEvent = [[RCTComponentEvent alloc] initWithName:@"topChange"
+                                                             viewTag:shineButton.reactTag
+                                                                body:event];
+    [self.bridge.eventDispatcher sendEvent:cEvent];
 }
 
 - (WCLShineButton *)view {
