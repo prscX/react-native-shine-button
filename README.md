@@ -27,6 +27,41 @@ This library is a React Native bridge around native Siri wave animation:
 
 ## 📖 Getting started
 
+`$ npm install react-native-shine-button --save`
+
+## **RN61 >= RNBAS V1 >**
+
+> RN61+ please use `react-native-shine-button` V1 and above
+
+- **iOS**
+
+	- Add the following to your `Podfile` -> `ios/Podfile` and run pod update:
+
+	```
+	  	use_native_modules!
+        pod 'RNShineButton', :path => '../node_modules/react-native-shine-button/ios'
+
+        use_frameworks!
+        pod 'WCLShineButton',:git => 'https://github.com/prscX/WCLShineButton.git', :branch =>'master'
+	```
+
+- **Android**
+
+Please add below snippet into your app `build.gradle`
+
+```
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+## **RN60 < RNBAS V1 <**
+
+> RN60 below please use `react-native-bottom-action-sheet` V.0.*
+
+
 - `$ npm install react-native-shine-button --save`
 
 - `$ react-native link react-native-shine-button`
