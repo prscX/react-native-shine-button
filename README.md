@@ -120,23 +120,32 @@ import RNShineButton from 'react-native-shine-button';
 
 ```
 
+## Icons
 
-## Vector Icons Usage
-Now you can even provide custom vector icons by using [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons). Please use below snippet:
+- **RN Vector Icons:** It supports [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) library. Please find below snippet for the usage:
 
 ```javascript
-import RNShineButton from 'react-native-shine-button';
-import Icon from 'react-native-vector-icons/FontAwesome'
+    import RNShineButton from 'react-native-shine-button';
+    import Icon from 'react-native-vector-icons/FontAwesome'
 
-let music = <Icon family={"FontAwesome"} name={"music"} color={"#808080"} />;
+    let music = <Icon family={"FontAwesome"} name={"music"} color={"#808080"} />;
 
-<RNShineButton shape={music} color={"#808080"} fillColor={"#ff0000"} size={100} />
-
+    <RNShineButton shape={music} color={"#808080"} fillColor={"#ff0000"} size={100} />
 ```
 
 > **Note:**
 > - We have added `family` prop for `Icon` class, please make sure that you pass the props
 
+
+- **Custom Icons**
+
+> **Note:**
+> Since we are using native libraries, we have not found a solution in order to render RN Images in production, therefore please copy all your image assets in platform specific folders:
+
+- Android: Please copy your image assets in app resource drawable folder
+- iOS: Please copy your image assets in app resources folder
+
+> Please refer example application for the image usage.
 
 
 ## 💡 Props
