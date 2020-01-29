@@ -112,13 +112,16 @@ RCT_CUSTOM_VIEW_PROPERTY(shape, NSDictonary *, WCLShineButton) {
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
-
 - (UIImage *) generateVectorIcon: (NSDictionary *) icon {
     NSString *family = [icon objectForKey: @"family"];
     NSString *name = [icon objectForKey: @"name"];
     NSString *glyph = [icon objectForKey: @"glyph"];
     NSNumber *size = [icon objectForKey: @"size"];
     NSString *color = [icon objectForKey: @"color"];
+    
+    if (name != nil && [name length] > 0 && [name containsString: @"."]) {
+        return [UIImage imageNamed: name];
+    }
     
     UIColor *uiColor = [RNShineButton colorFromHexCode: color];
     CGFloat screenScale = RCTScreenScale();
