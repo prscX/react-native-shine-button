@@ -1,10 +1,8 @@
 
 package ui.shine;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.content.res.AssetManager;
+import android.annotation.TargetApi;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -14,20 +12,10 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.StrictMode;
-import androidx.annotation.DrawableRes;
-import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
-import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContext;
-import com.facebook.react.bridge.ReactContextBaseJavaModule;
-import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.UIManagerModule;
@@ -37,7 +25,6 @@ import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.views.text.ReactFontManager;
 import com.sackcentury.shinebuttonlib.ShineButton;
 
-import java.util.HashMap;
 import java.util.Random;
 
 public class RNShineButton extends ViewGroupManager<ViewGroup> {
@@ -171,18 +158,18 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
       int size = icon.getInt("size");
 
       if (name != null && name.length() > 0 && name.contains(".")) {
-        Resources resources = getReactApplicationContext().getResources();
+        Resources resources = this.reactContext.getResources();
         name = name.substring(0, name.lastIndexOf("."));
 
-        final int resourceId = resources.getIdentifier(name, "drawable", getReactApplicationContext().getPackageName());
-        return getReactApplicationContext().getDrawable(resourceId);
+        final int resourceId = resources.getIdentifier(name, "drawable", this.reactContext.getPackageName());
+        return this.reactContext.getDrawable(resourceId);
       }
 
-      float scale = getReactApplicationContext().getResources().getDisplayMetrics().density;
+      float scale = this.reactContext.getResources().getDisplayMetrics().density;
       String scaleSuffix = "@" + (scale == (int) scale ? Integer.toString((int) scale) : Float.toString(scale)) + "x";
       int fontSize = Math.round(size * scale);
 
-      Typeface typeface = ReactFontManager.getInstance().getTypeface(family, 0, getReactApplicationContext().getAssets());
+      Typeface typeface = ReactFontManager.getInstance().getTypeface(family, 0, this.reactContext.getAssets());
       Paint paint = new Paint();
       paint.setTypeface(typeface);
 
@@ -203,7 +190,7 @@ public class RNShineButton extends ViewGroupManager<ViewGroup> {
       Canvas canvas = new Canvas(bitmap);
       canvas.drawText(glyph, -textBounds.left, -textBounds.top, paint);
 
-      return new BitmapDrawable(getReactApplicationContext().getResources(), bitmap);
+      return new BitmapDrawable(this.reactContext.getResources(), bitmap);
     } catch (Exception exception) {
       return null;
     }
