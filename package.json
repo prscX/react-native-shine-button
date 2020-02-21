@@ -1,6 +1,6 @@
 {
   "name": "react-native-shine-button",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "React Native Bridge for ChadCSong/ShineButton & imwcl/WCLShineButton",
   "main": "js/RNShineButton.js",
   "homepage": "https://github.com/prscX/react-native-shine-button.git",
@@ -15,9 +15,7 @@
     "react-native"
   ],
   "author": "Pranav Raj Singh Chauhan",
-  "dependencies": {
-    "react-native-vector-icons": "5.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "prettier-pack": "0.0.7"
   },
